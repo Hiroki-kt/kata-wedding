@@ -6,7 +6,7 @@ import RVSP from '@/RSVP'
 
 const Top = () => {
   return (
-    <div>
+    <div className="w-screen h-screen">
       <Hero></Hero>
       <Message></Message>
       <CountDown></CountDown>
