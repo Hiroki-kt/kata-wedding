@@ -1,8 +1,8 @@
-import Hero from '@/Hero'
-import Message from '@/Message'
-import CountDown from '@/CountDown'
-import EventsInfo from '@/EventsInfo'
-import RVSP from '@/RSVP'
+import Hero from './Hero'
+import Message from './Message'
+import CountDown from './CountDown'
+import EventsInfo from './EventsInfo'
+import RVSP from './RSVP'
 
 const Top = () => {
   return (
