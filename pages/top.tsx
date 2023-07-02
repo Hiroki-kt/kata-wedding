@@ -9,7 +9,7 @@ const Top = () => {
     <div className="w-screen h-screen">
       <Hero></Hero>
       <Message></Message>
-      <CountDown></CountDown>
+      {/* <CountDown></CountDown> */}
       <EventsInfo></EventsInfo>
       <RVSP></RVSP>
     </div>

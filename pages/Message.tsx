@@ -3,10 +3,10 @@ import IntroPerson from '@/IntroPerson'
 
 const Message = () => {
   return (
-    <div className="w-full bg-gray-100 border-b-4">
-      <div className="w-[80%] m-auto pt-[50px] pb-[50px]">
+    <div className="w-full bg-gray-100">
+      <div className="w-[80%] m-auto py-5">
         {/* Title */}
-        <SectionTitle icon="Mail" color="yellow" name="Message" />
+        <SectionTitle icon="faMessage" name="Message" />
         {/* Contents1 */}
         <div className="mt-[30px]">
           <p className="text-[18px] text-black">

@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGamepad, faMessage } from '@fortawesome/free-solid-svg-icons'
+import { faMessage, faCalendarDays } from '@fortawesome/free-solid-svg-icons'
 
 class SectionTitleProps {
   icon?: string
@@ -8,27 +8,30 @@ class SectionTitleProps {
 }
 
 const SectionTitle = (props: SectionTitleProps) => {
-  let titleIcon
-
+  let titleIcon, iconColor
+  console.log(props.icon)
   switch (props.icon) {
-    case 'faGamepad':
-      titleIcon = faGamepad
-    case 'faMessage':
-      titleIcon = faMessage
     default:
       titleIcon = faMessage
-
-      return (
-        <div className="pt-[100px] flex flex-col justify-center">
-          <FontAwesomeIcon
-            icon={titleIcon}
-            className="h-[60px] text-yellow-500"
-          />
-          <h1 className="text-center text-[48px] text-black font-extrabold">
-            {props.name}
-          </h1>
-        </div>
-      )
+      iconColor = 'text-green-500'
+      break
+    case 'faMessage':
+      titleIcon = faMessage
+      iconColor = 'text-yellow-500'
+      break
+    case 'faCalendarDays':
+      titleIcon = faCalendarDays
+      iconColor = 'text-purple-500'
+      break
   }
+
+  return (
+    <div className="pt-[100px] flex flex-col justify-center">
+      <FontAwesomeIcon icon={titleIcon} className={`h-[60px] ${iconColor}`} />
+      <h1 className="text-center text-[48px] text-black font-extrabold">
+        {props.name}
+      </h1>
+    </div>
+  )
 }
 export default SectionTitle

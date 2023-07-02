@@ -1,11 +1,11 @@
+import SectionTitle from '@/SectionTitle'
+
 const EventsInfo = () => {
   return (
     <div className="w-full bg-gray-100 border-b-4">
-      <div className="w-[80%] m-auto pt-[100px] pb-[100px]">
+      <div className="w-[80%] m-auto py-5">
         {/* Title */}
-        <div className="pt-[100px]">
-          <h1 className="text-center text-4xl text-black">Events</h1>
-        </div>
+        <SectionTitle icon="faCalendarDays" name="Events" />
         {/* Contents1 */}
         <div className="mt-[80px] flex">
           {/*  */}
