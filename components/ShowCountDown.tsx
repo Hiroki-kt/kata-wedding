@@ -14,7 +14,7 @@ const DateTimeDisplay = (props: DateTimeDisplayProps) => {
 }
 
 class ShowCounterProps {
-  days: number = 0
+  days = 0
   hours?: number
   minutes?: number
   seconds?: number

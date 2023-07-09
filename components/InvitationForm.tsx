@@ -13,8 +13,6 @@ import EmailIcon from '@mui/icons-material/Email'
 import LockIcon from '@mui/icons-material/Lock'
 import CheckBoxIcon from '@mui/icons-material/CheckBox'
 import { useForm, Controller } from 'react-hook-form'
-import Image from 'next/image'
-// import { useRouter } from 'next/router'
 import { FC, useEffect } from 'react'
 import DefaultFormInput from './DefaultFormInput'
 
@@ -63,101 +61,92 @@ const InvitationForm: FC<Props> = ({ setStep }) => {
       // width={{ xs: 'calc(100% - 32px)', sm: '450px' }}
       p={{ xs: 2, sm: 5 }}
     >
+      <Typography variant="h6" sx={{ fontWeight: 700, color: '#504C74' }}>
+        お名前を入力してください
+      </Typography>
+      <DefaultFormInput
+        placeholder="お名前"
+        type="email"
+        value={getValues('email')}
+        startAdornment={<EmailIcon />}
+      />
+
+      <DefaultFormInput
+        placeholder="かな"
+        type="email"
+        value={getValues('email')}
+        startAdornment={<EmailIcon />}
+      />
+      <Typography variant="h6" sx={{ fontWeight: 700, color: '#504C74' }}>
+        住所を入力してください
+      </Typography>
+      <DefaultFormInput
+        placeholder="郵便番号"
+        type="email"
+        value={getValues('email')}
+        startAdornment={<EmailIcon />}
+      />
+
+      <DefaultFormInput
+        placeholder="都道府県"
+        type="email"
+        value={getValues('email')}
+        startAdornment={<EmailIcon />}
+      />
+
+      <DefaultFormInput
+        placeholder="市区町村"
+        type="email"
+        value={getValues('email')}
+        startAdornment={<EmailIcon />}
+      />
+
+      <DefaultFormInput
+        placeholder="住所"
+        type="email"
+        value={getValues('email')}
+        startAdornment={<EmailIcon />}
+      />
+
+      <DefaultFormInput
+        placeholder="建物"
+        type="email"
+        value={getValues('email')}
+        startAdornment={<EmailIcon />}
+      />
+      <Typography variant="h6" sx={{ fontWeight: 700, color: '#504C74' }}>
+        連作先を入力してください
+      </Typography>
+      <DefaultFormInput
+        placeholder="電話番号"
+        type="email"
+        value={getValues('email')}
+        startAdornment={<EmailIcon />}
+      />
+
       <DefaultFormInput
         placeholder="メールアドレス"
         type="email"
         value={getValues('email')}
         startAdornment={<EmailIcon />}
-        formInputStyle={{ margin: '28px 0' }}
-        formInputProps={{ readOnly: true }}
       />
 
-      <Controller
-        name="password"
-        control={control}
-        rules={{ required: 'パスワードを入力してください' }}
-        render={({ field }) => (
-          <DefaultFormInput
-            placeholder="パスワード"
-            type="password"
-            value={field.value}
-            onChange={field.onChange}
-            error={!!errors.password}
-            helperText={errors.password?.message}
-            startAdornment={<LockIcon />}
-          />
-        )}
+      <Typography variant="h6" sx={{ fontWeight: 700, color: '#504C74' }}>
+        任意で入力してください
+      </Typography>
+      <DefaultFormInput
+        placeholder="アレルギー"
+        type="email"
+        value={getValues('email')}
+        startAdornment={<EmailIcon />}
       />
 
-      <Controller
-        name="password2"
-        control={control}
-        rules={{
-          validate: (value) =>
-            value === getValues('password') || 'パスワードが一致しません',
-        }}
-        render={({ field }) => (
-          <DefaultFormInput
-            placeholder="パスワード (確認)"
-            type="password"
-            value={field.value}
-            onChange={field.onChange}
-            error={!!errors.password2}
-            helperText={errors.password2?.message}
-            startAdornment={<LockIcon />}
-            formInputStyle={{ marginBottom: '10px' }}
-          />
-        )}
+      <DefaultFormInput
+        placeholder="メッセージ"
+        type="email"
+        value={getValues('email')}
+        startAdornment={<EmailIcon />}
       />
-
-      {/* <FormControl error={true} sx={{ height: '80px' }}>
-        <FormControlLabel
-          control={
-            <Checkbox
-              {...register('agree', {
-                required: '利用規約とプライバシーポリシーへの同意は必須です',
-              })}
-              color="primary"
-              icon={
-                <Box
-                  sx={{
-                    width: '30px',
-                    height: '30px',
-                    backgroundColor: '#D9D9D9',
-                    borderRadius: '10px',
-                    marginRight: '14px',
-                  }}
-                />
-              }
-              checkedIcon={
-                <CheckBoxIcon
-                  width="30px"
-                  height="30px"
-                  sx={{
-                    width: '30px',
-                    height: '30px',
-                    marginRight: '14px',
-                  }}
-                />
-              }
-            />
-          }
-          label={
-            <Typography sx={{ color: '#6C698A' }}>
-              <Link
-                color="inherit"
-                href={process.env.NEXT_PUBLIC_ADMIN_POLICY}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                利用規約とプライバシーポリシー
-              </Link>
-              に同意する
-            </Typography>
-          }
-        />
-        <FormHelperText>{errors.agree?.message}</FormHelperText>
-      </FormControl> */}
 
       <Button
         variant="contained"

@@ -24,8 +24,8 @@ type Props = {
 const FormInput = styled(OutlinedInput)`
   input {
     padding: 0 0 0 18px;
-    font-size: 18px;
-    line-height: 25px;
+    font-size: 14px;
+    line-height: 20px;
   }
 
   .MuiSvgIcon-root {
@@ -40,8 +40,8 @@ const FormInput = styled(OutlinedInput)`
 
 const TitleLabel = styled(FormLabel)`
   font-weight: 700;
-  font-size: 18px;
-  line-height: 25px;
+  font-size: 14px;
+  line-height: 20px;
   color: #504c74;
 `
 

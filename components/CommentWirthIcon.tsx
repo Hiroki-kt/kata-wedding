@@ -11,7 +11,7 @@ const CommentWithIcon = (props: CommentWithIconProps) => {
       <div className={`w-2/3 ${bgColor} rounded-2xl p-2`}>
         <p className="text-[18px] text-black">{props.comment}</p>
       </div>
-      <div className="w-1/3">
+      <div className="w-1/3 max-w-xs">
         <img src={props.img} className="w-full h-full object-contain" />
       </div>
     </div>
