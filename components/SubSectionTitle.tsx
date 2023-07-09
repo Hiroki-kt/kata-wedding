@@ -27,7 +27,11 @@ const SubSectionTitle = (props: SubSectionTitleProps) => {
 
   return (
     <div className="pt-[100px] flex justify-center">
-      <FontAwesomeIcon icon={titleIcon} className={`h-[42px] ${iconColor}`} />
+      <FontAwesomeIcon
+        icon={titleIcon}
+        className={`h-[42px] ${iconColor}`}
+        style={{ height: '42px' }}
+      />
       <h1 className="text-center text-[30px] text-black font-extrabold ml-2">
         {props.name}
       </h1>

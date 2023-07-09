@@ -34,7 +34,11 @@ const SectionTitle = (props: SectionTitleProps) => {
 
   return (
     <div className="pt-[100px] flex flex-col justify-center">
-      <FontAwesomeIcon icon={titleIcon} className={`h-[60px] ${iconColor}`} />
+      <FontAwesomeIcon
+        icon={titleIcon}
+        className={`h-[60px] ${iconColor}`}
+        style={{ height: '60px' }}
+      />
       <h1 className="text-center text-[48px] text-black font-extrabold">
         {props.name}
       </h1>
