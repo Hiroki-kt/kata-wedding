@@ -28,7 +28,7 @@ const IntroPerson = (props: IntroPersonProps) => {
       <CommentWithIcon
         type={props.type}
         comment={person.Comment}
-        img="/sample-audrey3.png"
+        img={person.Img}
       />
     </div>
   )

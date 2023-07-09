@@ -25,7 +25,7 @@ const EventsInfo = () => {
         <CommentWithIcon
           type="groom"
           comment="挙式開始の15分前にお越しください。"
-          img="/sample-audrey3.png"
+          img="/hiroki-1.png"
         />
         {/* Contents2 */}
         <SubSectionTitle icon="faCalendarDays" name="Place" />
@@ -50,7 +50,7 @@ const EventsInfo = () => {
           <CommentWithIcon
             type="bride"
             comment="式場はJR豊肥本線 武蔵塚駅から徒歩5分になります。本数は多くありませんので、ご注意ください"
-            img="/sample-audrey3.png"
+            img="/nao-1.png"
           />
         </div>
       </div>

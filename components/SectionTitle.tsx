@@ -1,5 +1,9 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMessage, faCalendarDays } from '@fortawesome/free-solid-svg-icons'
+import {
+  faMessage,
+  faCalendarDays,
+  faClipboardUser,
+} from '@fortawesome/free-solid-svg-icons'
 
 class SectionTitleProps {
   icon?: string
@@ -9,7 +13,6 @@ class SectionTitleProps {
 
 const SectionTitle = (props: SectionTitleProps) => {
   let titleIcon, iconColor
-  console.log(props.icon)
   switch (props.icon) {
     default:
       titleIcon = faMessage
@@ -22,6 +25,10 @@ const SectionTitle = (props: SectionTitleProps) => {
     case 'faCalendarDays':
       titleIcon = faCalendarDays
       iconColor = 'text-purple-500'
+      break
+    case 'faClipboardUser':
+      titleIcon = faClipboardUser
+      iconColor = 'text-green-500'
       break
   }
 

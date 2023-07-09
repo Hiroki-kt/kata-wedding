@@ -3,6 +3,7 @@ import Message from './Message'
 import CountDown from './CountDown'
 import EventsInfo from './EventsInfo'
 import RVSP from './RSVP'
+import Footer from './Footer'
 
 const Top = () => {
   return (
@@ -11,6 +12,7 @@ const Top = () => {
       <Message></Message>
       <EventsInfo></EventsInfo>
       <RVSP></RVSP>
+      <Footer></Footer>
       <CountDown></CountDown>
     </div>
   )

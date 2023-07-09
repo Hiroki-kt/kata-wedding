@@ -5,14 +5,16 @@
       "Country": "熊本県",
       "BradType": "O型",
       "Myboom": "糖質制限",
-      "Comment": "よろしくお願いします"
+      "Comment": "よろしくお願いします",
+      "Img": "/hiroki-1.png"
     },
     "Nao": {
       "BirthDay": "1995/06/09",
       "Country": "熊本県",
       "BradType": "O型",
       "Myboom": "糖質制限",
-      "Comment": "よろしくお願いします"
+      "Comment": "よろしくお願いします",
+      "Img": "/nao-1.png"
     }
   }
 }
