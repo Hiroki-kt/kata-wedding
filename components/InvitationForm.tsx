@@ -20,12 +20,20 @@ type Props = {
   setStep: React.Dispatch<React.SetStateAction<0 | 1 | 2>>
 }
 
-type FormValues = {
+interface FormValues {
+  name: string
+  kana: string
+  zip_code: number | undefined
+  state: string
+  city: string
+  address: string
+  building: string
+  phone: string
   email: string
-  password: string
-  password2: string
-  agree: boolean
+  allergies: string
+  message: string
 }
+
 const InvitationForm: FC<Props> = ({ setStep }) => {
   // const router = useRouter()
   // useEffect(() => {
@@ -36,14 +44,36 @@ const InvitationForm: FC<Props> = ({ setStep }) => {
   const {
     register,
     handleSubmit,
-    setValue,
+    // setValue,
     getValues,
     formState: { errors },
     control,
-  } = useForm<FormValues>()
+  } = useForm<FormValues>({
+    defaultValues: {
+      name: '',
+      kana: '',
+      zip_code: undefined,
+      state: '',
+      city: '',
+      address: '',
+      building: '',
+      phone: '',
+      email: '',
+      allergies: '',
+      message: '',
+    },
+  })
 
-  const signup = async (data: FormValues) => {
+  const sendForm = async (data: FormValues) => {
     // const check = await auth.signUp(data.email, data.password)
+    console.log(data)
+
+    const res = await fetch('/api/route/', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    })
+    console.log(res)
+
     const check = { success: true, message: 'success' }
     if (check?.success) {
       setStep(1)
@@ -55,7 +85,7 @@ const InvitationForm: FC<Props> = ({ setStep }) => {
   return (
     <Stack
       component="form"
-      onSubmit={handleSubmit(signup)}
+      // onSubmit={handleSubmit(sendForm)}
       alignItems="center"
       // sx={{ background: '#FFF' }}
       // width={{ xs: 'calc(100% - 32px)', sm: '450px' }}
@@ -64,93 +94,200 @@ const InvitationForm: FC<Props> = ({ setStep }) => {
       <Typography variant="h6" sx={{ fontWeight: 700, color: '#504C74' }}>
         お名前を入力してください
       </Typography>
-      <DefaultFormInput
-        placeholder="お名前"
-        type="email"
-        value={getValues('email')}
-        startAdornment={<EmailIcon />}
+
+      <Controller
+        name="name"
+        control={control}
+        rules={{ required: '名前(漢字)を記述してください。' }}
+        render={({ field }) => (
+          <DefaultFormInput
+            placeholder="お名前"
+            type="text"
+            value={field.value}
+            onChange={field.onChange}
+            startAdornment={<EmailIcon />}
+            error={!!errors.name}
+            helperText={errors.name && errors.name.message}
+          />
+        )}
       />
 
-      <DefaultFormInput
-        placeholder="かな"
-        type="email"
-        value={getValues('email')}
-        startAdornment={<EmailIcon />}
+      <Controller
+        name="kana"
+        control={control}
+        rules={{ required: '名前(かな)を記述してください。' }}
+        render={({ field }) => (
+          <DefaultFormInput
+            placeholder="かな"
+            type="text"
+            value={field.value}
+            onChange={field.onChange}
+            startAdornment={<EmailIcon />}
+            error={!!errors.kana}
+            helperText={errors.kana && errors.kana.message}
+          />
+        )}
       />
+
       <Typography variant="h6" sx={{ fontWeight: 700, color: '#504C74' }}>
         住所を入力してください
       </Typography>
-      <DefaultFormInput
-        placeholder="郵便番号"
-        type="email"
-        value={getValues('email')}
-        startAdornment={<EmailIcon />}
+
+      <Controller
+        name="zip_code"
+        control={control}
+        rules={{ required: '郵便番号を入力してください。' }}
+        render={({ field }) => (
+          <DefaultFormInput
+            placeholder="郵便番号"
+            type="number"
+            value={field.value}
+            onChange={field.onChange}
+            startAdornment={<EmailIcon />}
+            error={!!errors.zip_code}
+            helperText={errors.zip_code && errors.zip_code.message}
+          />
+        )}
       />
 
-      <DefaultFormInput
-        placeholder="都道府県"
-        type="email"
-        value={getValues('email')}
-        startAdornment={<EmailIcon />}
+      <Controller
+        name="state"
+        control={control}
+        rules={{ required: '都道府県を記入してください。' }}
+        render={({ field }) => (
+          <DefaultFormInput
+            placeholder="都道府県"
+            type="text"
+            value={field.value}
+            onChange={field.onChange}
+            startAdornment={<EmailIcon />}
+            error={!!errors.state}
+            helperText={errors.state && errors.state.message}
+          />
+        )}
       />
 
-      <DefaultFormInput
-        placeholder="市区町村"
-        type="email"
-        value={getValues('email')}
-        startAdornment={<EmailIcon />}
+      <Controller
+        name="city"
+        control={control}
+        rules={{ required: '市区町村を記入してください。' }}
+        render={({ field }) => (
+          <DefaultFormInput
+            placeholder="市区町村"
+            type="text"
+            value={field.value}
+            onChange={field.onChange}
+            startAdornment={<EmailIcon />}
+            error={!!errors.city}
+            helperText={errors.city && errors.city.message}
+          />
+        )}
       />
 
-      <DefaultFormInput
-        placeholder="住所"
-        type="email"
-        value={getValues('email')}
-        startAdornment={<EmailIcon />}
+      <Controller
+        name="address"
+        control={control}
+        rules={{ required: '住所の続きを記入してください。' }}
+        render={({ field }) => (
+          <DefaultFormInput
+            placeholder="住所"
+            type="text"
+            value={field.value}
+            onChange={field.onChange}
+            startAdornment={<EmailIcon />}
+            error={!!errors.address}
+            helperText={errors.address && errors.address.message}
+          />
+        )}
       />
 
-      <DefaultFormInput
-        placeholder="建物"
-        type="email"
-        value={getValues('email')}
-        startAdornment={<EmailIcon />}
+      <Controller
+        name="building"
+        control={control}
+        render={({ field }) => (
+          <DefaultFormInput
+            placeholder="建物"
+            type="text"
+            value={field.value}
+            onChange={field.onChange}
+            startAdornment={<EmailIcon />}
+          />
+        )}
       />
+
       <Typography variant="h6" sx={{ fontWeight: 700, color: '#504C74' }}>
         連作先を入力してください
       </Typography>
-      <DefaultFormInput
-        placeholder="電話番号"
-        type="email"
-        value={getValues('email')}
-        startAdornment={<EmailIcon />}
+
+      <Controller
+        name="phone"
+        control={control}
+        rules={{ required: '電話番号を記入してください。' }}
+        render={({ field }) => (
+          <DefaultFormInput
+            placeholder="電話番号"
+            type="phone"
+            value={field.value}
+            onChange={field.onChange}
+            startAdornment={<EmailIcon />}
+            error={!!errors.phone}
+            helperText={errors.phone && errors.phone.message}
+          />
+        )}
       />
 
-      <DefaultFormInput
-        placeholder="メールアドレス"
-        type="email"
-        value={getValues('email')}
-        startAdornment={<EmailIcon />}
+      <Controller
+        name="email"
+        control={control}
+        rules={{ required: 'メールアドレスを記入してください。' }}
+        render={({ field }) => (
+          <DefaultFormInput
+            placeholder="メールアドレス"
+            type="email"
+            value={field.value}
+            onChange={field.onChange}
+            startAdornment={<EmailIcon />}
+            error={!!errors.email}
+            helperText={errors.email && errors.email.message}
+          />
+        )}
       />
 
       <Typography variant="h6" sx={{ fontWeight: 700, color: '#504C74' }}>
         任意で入力してください
       </Typography>
-      <DefaultFormInput
-        placeholder="アレルギー"
-        type="email"
-        value={getValues('email')}
-        startAdornment={<EmailIcon />}
+      <Controller
+        name="allergies"
+        control={control}
+        render={({ field }) => (
+          <DefaultFormInput
+            placeholder="アレルギー"
+            type="text"
+            value={field.value}
+            onChange={field.onChange}
+            startAdornment={<EmailIcon />}
+          />
+        )}
       />
 
-      <DefaultFormInput
-        placeholder="メッセージ"
-        type="email"
-        value={getValues('email')}
-        startAdornment={<EmailIcon />}
+      <Controller
+        name="message"
+        control={control}
+        render={({ field }) => (
+          <DefaultFormInput
+            placeholder="メッセージ"
+            type="text"
+            value={field.value}
+            onChange={field.onChange}
+            startAdornment={<EmailIcon />}
+          />
+        )}
       />
 
       <Button
         variant="contained"
         type="submit"
+        onClick={handleSubmit(sendForm)}
         sx={{
           width: '100%',
           height: '65px',
