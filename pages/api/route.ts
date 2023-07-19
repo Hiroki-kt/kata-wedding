@@ -25,6 +25,8 @@ export default async function POST(req: NextApiRequest, res: NextApiResponse) {
       properties: format_properties(props),
     }
     console.log(body)
+    console.log(process.env.NOTION_API_KEY)
+    console.log(url)
     const result = await fetch(url, {
       method: 'POST',
       headers: {
