@@ -68,17 +68,87 @@ const InvitationForm: FC<Props> = ({ setStep }) => {
     // const check = await auth.signUp(data.email, data.password)
     console.log(data)
 
-    const res = await fetch('/api/route/', {
-      method: 'POST',
-      body: JSON.stringify(data),
-    })
-    console.log(res)
+    const url = `https://api.notion.com/v1/pages/`
+    try {
+      const body = {
+        parent: { database_id: 'e26e5645b5a94279b7539f12f6c074a9' },
+        properties: format_properties(data),
+      }
+      console.log(body)
+      const result = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${process.env.NOTION_API_KEY}`,
+          'Notion-Version': '2022-06-28',
+        },
+        body: JSON.stringify(body),
+      })
 
-    const check = { success: true, message: 'success' }
-    if (check?.success) {
-      setStep(1)
-    } else {
-      alert(check?.message)
+      const res = await result.json()
+      console.log(res)
+      if (res.status === 200) {
+        setStep(1)
+      } else {
+        alert(res.message)
+      }
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  const format_text = (text: string | undefined) => {
+    text = text || ''
+    return [{ type: 'text', text: { content: text } }]
+  }
+
+  const format_properties = (props: FormValues) => {
+    console.log(props.zip_code)
+    return {
+      Name: {
+        type: 'title',
+        title: format_text(props.name),
+      },
+      Kana: {
+        type: 'rich_text',
+        rich_text: format_text(props.kana),
+      },
+      ZipCode: {
+        type: 'number',
+        number: Number(props.zip_code) || 1234567,
+      },
+      State: {
+        type: 'rich_text',
+        rich_text: format_text(props.state),
+      },
+      City: {
+        type: 'rich_text',
+        rich_text: format_text(props.city),
+      },
+      Address: {
+        type: 'rich_text',
+        rich_text: format_text(props.address),
+      },
+      Building: {
+        type: 'rich_text',
+        rich_text: format_text(props.building),
+      },
+      Phone: {
+        type: 'phone_number',
+        phone_number: props.phone || '09012345678',
+      },
+      Mail: {
+        type: 'email',
+        email: props.email || 'test@test.com',
+      },
+      Allergies: {
+        type: 'rich_text',
+        rich_text: format_text(props.allergies),
+      },
+      Message: {
+        type: 'rich_text',
+        rich_text: format_text(props.message),
+      },
     }
   }
 
