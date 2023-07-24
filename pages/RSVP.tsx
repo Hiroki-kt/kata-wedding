@@ -8,7 +8,7 @@ const PVSP = () => {
   const [step, setStep] = useState<0 | 1 | 2>(0)
   return (
     <div className="w-full bg-gray-100">
-      <div className="w-[80%] m-auto py-5">
+      <div className="w-[80%] m-auto py-5 md:w-1/2">
         {/* Title */}
         <SectionTitle icon="faClipboardUser" name="RSVP" />
         {/* Contents1 */}
@@ -18,8 +18,8 @@ const PVSP = () => {
             comment="お手数ではありますが、返信は8/31までにお願いいたします。"
             img="/hiroki-1.png"
           />
-          <InvitationForm setStep={setStep} />
         </div>
+        <InvitationForm setStep={setStep} />
       </div>
     </div>
   )

@@ -5,7 +5,7 @@ import CommentWithIcon from '@/CommentWirthIcon'
 const EventsInfo = () => {
   return (
     <div className="w-full bg-gray-100">
-      <div className="w-[80%] m-auto py-5">
+      <div className="w-[80%] m-auto py-5 md:w-1/2">
         {/* Title */}
         <SectionTitle icon="faCalendarDays" name="EventsInfo" />
         {/* Contents1 */}
