@@ -1,6 +1,7 @@
 import { format, resolve } from 'path'
 import type { NextApiRequest, NextApiResponse } from 'next'
 class FormProps {
+  attend?: boolean
   name?: string
   kana?: string
   zip_code?: number
@@ -99,6 +100,10 @@ const format_properties = (props: FormProps) => {
     Message: {
       type: 'rich_text',
       rich_text: format_text(props.message),
+    },
+    Attend: {
+      type: 'checkbox',
+      checkbox: props.attend,
     },
   }
 }

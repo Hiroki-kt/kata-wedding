@@ -15,12 +15,14 @@ import CheckBoxIcon from '@mui/icons-material/CheckBox'
 import { useForm, Controller } from 'react-hook-form'
 import { FC, useEffect } from 'react'
 import DefaultFormInput from './DefaultFormInput'
+import FormToggleButton from '@/FormToggleButton'
 
 type Props = {
   setStep: React.Dispatch<React.SetStateAction<0 | 1 | 2>>
 }
 
 interface FormValues {
+  attend: boolean
   name: string
   kana: string
   zip_code: number | undefined
@@ -50,6 +52,7 @@ const InvitationForm: FC<Props> = ({ setStep }) => {
     control,
   } = useForm<FormValues>({
     defaultValues: {
+      attend: undefined,
       name: '',
       kana: '',
       zip_code: undefined,
@@ -91,6 +94,20 @@ const InvitationForm: FC<Props> = ({ setStep }) => {
       // width={{ xs: 'calc(100% - 32px)', sm: '450px' }}
       p={{ xs: 2, sm: 5 }}
     >
+      <Controller
+        name="attend"
+        control={control}
+        // rules={{ required: '出欠を選択してください。' }}
+        render={({ field }) => (
+          <FormToggleButton
+            state={field.value}
+            onChange={field.onChange}
+            // error={!!errors.attend}
+            // helperText={errors.attend && errors.attend.message}
+          />
+        )}
+      />
+
       <Typography variant="h6" sx={{ fontWeight: 700, color: '#504C74' }}>
         お名前を入力してください
       </Typography>
