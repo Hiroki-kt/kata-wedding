@@ -13,9 +13,10 @@ import EmailIcon from '@mui/icons-material/Email'
 import LockIcon from '@mui/icons-material/Lock'
 import CheckBoxIcon from '@mui/icons-material/CheckBox'
 import { useForm, Controller } from 'react-hook-form'
-import { FC, useEffect } from 'react'
+import { FC, useEffect, useState } from 'react'
 import DefaultFormInput from './DefaultFormInput'
 import FormToggleButton from '@/FormToggleButton'
+import FullScreenDialog from '@/FormCompleteDialog'
 
 type Props = {
   setStep: React.Dispatch<React.SetStateAction<0 | 1 | 2>>
@@ -42,6 +43,7 @@ const InvitationForm: FC<Props> = ({ setStep }) => {
   //   if (!router.isReady) return
   //   const { tk } = router.query
   // }, [router.isReady])
+  const [open, setOpen] = useState(false)
 
   const {
     register,
@@ -79,10 +81,14 @@ const InvitationForm: FC<Props> = ({ setStep }) => {
 
     const check = { success: true, message: 'success' }
     if (check?.success) {
-      setStep(1)
+      setOpen(true)
     } else {
       alert(check?.message)
     }
+  }
+
+  const handleDialogClose = () => {
+    setOpen(false)
   }
 
   return (
@@ -94,6 +100,11 @@ const InvitationForm: FC<Props> = ({ setStep }) => {
       // width={{ xs: 'calc(100% - 32px)', sm: '450px' }}
       p={{ xs: 2, sm: 5 }}
     >
+      <FullScreenDialog
+        open={open}
+        setOpen={setOpen}
+        handleClose={handleDialogClose}
+      />
       <Controller
         name="attend"
         control={control}

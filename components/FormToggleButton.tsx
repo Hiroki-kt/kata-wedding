@@ -17,7 +17,7 @@ const FormToggleButton = (props: Props) => {
   console.log(error, state)
   return (
     <>
-      <div className="w-full grow items-center justify-between">
+      <div className="w-full grow items-center justify-between mb-5">
         <div className="inline-flex w-full max-w-xl flex-row justify-end gap-4">
           <button
             type="button"
