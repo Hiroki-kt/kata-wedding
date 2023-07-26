@@ -19,12 +19,12 @@ const Transition = React.forwardRef(function Transition(
 type DialogProps = {
   open: boolean
   setOpen: React.Dispatch<React.SetStateAction<boolean>>
-  handleClose: () => void
+  attend: boolean
 }
 
 const FullScreenDialog = (props: DialogProps) => {
   // const [open, setOpen] = React.useState(false)
-  const { open, setOpen } = props
+  const { open, setOpen, attend } = props
 
   // const handleClickOpen = () => {
   //   setOpen(true)
@@ -57,8 +57,17 @@ const FullScreenDialog = (props: DialogProps) => {
         </DialogTitle>
         <DialogContent>
           <div className="w-full h-full flex flex-col items-center justify-center">
-            <div>ありがとうございました</div>
-            <div>参加される方はお会いできるのを楽しみにしております。</div>
+            <img src="/two.png" alt="" />
+            <div className="text-center">御回答ありがとうございました</div>
+            {attend ? (
+              <div className="text-center">
+                結婚式でお会いできることを楽しみにしています！！！
+              </div>
+            ) : (
+              <div className="text-center">
+                今回は残念ですが、ぜひまたの機会にお会いしましょう！！！
+              </div>
+            )}
           </div>
         </DialogContent>
       </Dialog>

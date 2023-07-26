@@ -9,9 +9,17 @@ import {
   Box,
   Link,
 } from '@mui/material'
+
+import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions'
 import EmailIcon from '@mui/icons-material/Email'
-import LockIcon from '@mui/icons-material/Lock'
-import CheckBoxIcon from '@mui/icons-material/CheckBox'
+import PublicIcon from '@mui/icons-material/Public'
+import PlaceIcon from '@mui/icons-material/Place'
+import PinDropIcon from '@mui/icons-material/PinDrop'
+import HomeIcon from '@mui/icons-material/Home'
+import PhoneIcon from '@mui/icons-material/Phone'
+import NoMealsIcon from '@mui/icons-material/NoMeals'
+import ChatIcon from '@mui/icons-material/Chat'
+
 import { useForm, Controller } from 'react-hook-form'
 import { FC, useEffect, useState } from 'react'
 import DefaultFormInput from './DefaultFormInput'
@@ -43,7 +51,7 @@ const InvitationForm: FC<Props> = ({ setStep }) => {
   //   if (!router.isReady) return
   //   const { tk } = router.query
   // }, [router.isReady])
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(true)
 
   const {
     register,
@@ -129,7 +137,7 @@ const InvitationForm: FC<Props> = ({ setStep }) => {
       <FullScreenDialog
         open={open}
         setOpen={setOpen}
-        handleClose={handleDialogClose}
+        attend={getValues('attend')}
       />
       <Controller
         name="attend"
@@ -159,7 +167,7 @@ const InvitationForm: FC<Props> = ({ setStep }) => {
             type="text"
             value={field.value}
             onChange={field.onChange}
-            startAdornment={<EmailIcon />}
+            startAdornment={<EmojiEmotionsIcon />}
             error={!!errors.name}
             helperText={errors.name && errors.name.message}
           />
@@ -176,7 +184,7 @@ const InvitationForm: FC<Props> = ({ setStep }) => {
             type="text"
             value={field.value}
             onChange={field.onChange}
-            startAdornment={<EmailIcon />}
+            startAdornment={<EmojiEmotionsIcon />}
             error={!!errors.kana}
             helperText={errors.kana && errors.kana.message}
           />
@@ -200,7 +208,7 @@ const InvitationForm: FC<Props> = ({ setStep }) => {
               field.onChange(e)
               updateZipcodeSub()
             }}
-            startAdornment={<EmailIcon />}
+            startAdornment={<PlaceIcon />}
             error={!!errors.zip_code}
             helperText={errors.zip_code && errors.zip_code.message}
           />
@@ -217,7 +225,7 @@ const InvitationForm: FC<Props> = ({ setStep }) => {
             type="text"
             value={field.value}
             onChange={field.onChange}
-            startAdornment={<EmailIcon />}
+            startAdornment={<PublicIcon />}
             error={!!errors.state}
             helperText={errors.state && errors.state.message}
           />
@@ -234,7 +242,7 @@ const InvitationForm: FC<Props> = ({ setStep }) => {
             type="text"
             value={field.value}
             onChange={field.onChange}
-            startAdornment={<EmailIcon />}
+            startAdornment={<PublicIcon />}
             error={!!errors.city}
             helperText={errors.city && errors.city.message}
           />
@@ -251,7 +259,7 @@ const InvitationForm: FC<Props> = ({ setStep }) => {
             type="text"
             value={field.value}
             onChange={field.onChange}
-            startAdornment={<EmailIcon />}
+            startAdornment={<PinDropIcon />}
             error={!!errors.address}
             helperText={errors.address && errors.address.message}
           />
@@ -267,7 +275,7 @@ const InvitationForm: FC<Props> = ({ setStep }) => {
             type="text"
             value={field.value}
             onChange={field.onChange}
-            startAdornment={<EmailIcon />}
+            startAdornment={<HomeIcon />}
           />
         )}
       />
@@ -286,7 +294,7 @@ const InvitationForm: FC<Props> = ({ setStep }) => {
             type="phone"
             value={field.value}
             onChange={field.onChange}
-            startAdornment={<EmailIcon />}
+            startAdornment={<PhoneIcon />}
             error={!!errors.phone}
             helperText={errors.phone && errors.phone.message}
           />
@@ -322,7 +330,7 @@ const InvitationForm: FC<Props> = ({ setStep }) => {
             type="text"
             value={field.value}
             onChange={field.onChange}
-            startAdornment={<EmailIcon />}
+            startAdornment={<NoMealsIcon />}
           />
         )}
       />
@@ -336,7 +344,7 @@ const InvitationForm: FC<Props> = ({ setStep }) => {
             type="text"
             value={field.value}
             onChange={field.onChange}
-            startAdornment={<EmailIcon />}
+            startAdornment={<ChatIcon />}
           />
         )}
       />
