@@ -48,7 +48,7 @@ const InvitationForm: FC<Props> = ({ setStep }) => {
   const {
     register,
     handleSubmit,
-    // setValue,
+    setValue,
     getValues,
     formState: { errors },
     control,
@@ -89,6 +89,32 @@ const InvitationForm: FC<Props> = ({ setStep }) => {
 
   const handleDialogClose = () => {
     setOpen(false)
+  }
+
+  const updateZipcodeSub = () => {
+    const zip_code = getValues('zip_code')
+    console.log(zip_code)
+    const zipCodeString = zip_code?.toString()
+    if (zipCodeString?.length === 7) {
+      try {
+        const url =
+          'https://zipcloud.ibsnet.co.jp/api/search?zipcode=' + zip_code
+        console.log(url)
+        fetch(url, { method: 'GET' })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data)
+            setValue('state', data.results[0].address1)
+            setValue('city', data.results[0].address2)
+            setValue('address', data.results[0].address3)
+          })
+          .catch((err) => console.log(err))
+      } catch {
+        alert('住所の取得に失敗しました。')
+      }
+    } else {
+      console.log('no zip code')
+    }
   }
 
   return (
@@ -170,7 +196,10 @@ const InvitationForm: FC<Props> = ({ setStep }) => {
             placeholder="郵便番号"
             type="number"
             value={field.value}
-            onChange={field.onChange}
+            onChange={(e) => {
+              field.onChange(e)
+              updateZipcodeSub()
+            }}
             startAdornment={<EmailIcon />}
             error={!!errors.zip_code}
             helperText={errors.zip_code && errors.zip_code.message}
