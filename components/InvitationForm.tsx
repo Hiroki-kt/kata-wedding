@@ -162,9 +162,9 @@ const InvitationForm: FC<Props> = ({ setStep }) => {
         render={({ field }) => (
           <FormToggleButton
             state={field.value}
-            onChange={(value: boolean) => {
-              field.onChange(value)
-              setAttend(value ? 1 : 2)
+            onChange={(e) => {
+              field.onChange(e)
+              setAttend(field.value ? 1 : 2)
             }}
             // error={!!errors.attend}
             // helperText={errors.attend && errors.attend.message}
@@ -205,8 +205,8 @@ const InvitationForm: FC<Props> = ({ setStep }) => {
                 placeholder="かな"
                 type="text"
                 value={field.value}
-                onChange={(value: string) => {
-                  field.onChange(value)
+                onChange={(e) => {
+                  field.onChange(e)
                   setProgress(1)
                 }}
                 startAdornment={<EmojiEmotionsIcon />}
@@ -292,8 +292,8 @@ const InvitationForm: FC<Props> = ({ setStep }) => {
                 placeholder="住所"
                 type="text"
                 value={field.value}
-                onChange={(value: string) => {
-                  field.onChange(value)
+                onChange={(e) => {
+                  field.onChange(e)
                   setProgress(2)
                 }}
                 startAdornment={<PinDropIcon />}
@@ -354,8 +354,8 @@ const InvitationForm: FC<Props> = ({ setStep }) => {
                 placeholder="メールアドレス"
                 type="email"
                 value={field.value}
-                onChange={(value: string) => {
-                  field.onChange(value)
+                onChange={(e) => {
+                  field.onChange(e)
                   setProgress(3)
                 }}
                 startAdornment={<EmailIcon />}
