@@ -18,7 +18,7 @@ const EventsInfo = () => {
                 {/*  */}
                 <div className="w-full text-center">
                   <h3 className="text-2xl">挙式</h3>
-                  <p>開始時刻 16:30</p>
+                  <p>開始時刻 16:15</p>
                 </div>
                 {/*  */}
                 <div className="w-full text-center">
