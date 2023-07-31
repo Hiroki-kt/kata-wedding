@@ -162,9 +162,10 @@ const InvitationForm: FC<Props> = ({ setStep }) => {
         render={({ field }) => (
           <FormToggleButton
             state={field.value}
+            setAttend={setAttend}
             onChange={(e) => {
               field.onChange(e)
-              setAttend(field.value ? 1 : 2)
+              console.log(attend)
             }}
             // error={!!errors.attend}
             // helperText={errors.attend && errors.attend.message}
@@ -367,7 +368,7 @@ const InvitationForm: FC<Props> = ({ setStep }) => {
         </>
       )}
 
-      {progress >= 3 && attend == 1 && (
+      {progress >= 3 && attend === 1 && (
         <>
           <Typography
             variant="h6"

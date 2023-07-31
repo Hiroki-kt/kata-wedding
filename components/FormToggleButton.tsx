@@ -3,17 +3,20 @@ import { Button } from '@mui/material'
 type Props = {
   state: boolean
   onChange: (value: boolean) => void
+  setAttend: (value: number) => void
   error?: boolean
   helperText?: string
 }
 
 const FormToggleButton = (props: Props) => {
-  const { state, onChange, error, helperText } = props
+  const { state, onChange, setAttend, error, helperText } = props
   const onClickTrue = () => {
     onChange(true)
+    setAttend(1)
   }
   const onClickFalse = () => {
     onChange(false)
+    setAttend(2)
   }
 
   console.log(error, state)
