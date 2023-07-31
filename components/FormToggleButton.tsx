@@ -1,3 +1,5 @@
+import { Button } from '@mui/material'
+
 type Props = {
   state: boolean
   onChange: (value: boolean) => void
@@ -24,8 +26,8 @@ const FormToggleButton = (props: Props) => {
             className={
               'inline-flex h-16 w-64 items-center justify-center rounded-lg border ' +
               (!state && state !== undefined
-                ? 'bg-[#2D34CC] border-[#2D34CC] text-white'
-                : 'bg-white text-[#777777] border-[#777777]')
+                ? 'bg-[#1976d2] border-[#1976d2] text-white'
+                : 'bg-none text-[#777777] border-[#777777]')
             }
             onClick={onClickFalse}
           >
@@ -37,8 +39,8 @@ const FormToggleButton = (props: Props) => {
             className={
               'inline-flex h-16 w-64 items-center justify-center rounded-lg border ' +
               (state
-                ? 'bg-[#2D34CC] border-[#2D34CC] text-white'
-                : 'bg-white text-[#777777] border-[#777777]')
+                ? 'bg-[#1976d2] border-#1976d2] text-white'
+                : 'bg-none text-[#777777] border-[#777777]')
             }
             onClick={onClickTrue}
           >

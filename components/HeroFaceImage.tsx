@@ -1,3 +1,4 @@
+import ScrollAnimation from 'react-animate-on-scroll'
 class HeroFaceImageProps {
   heroFace?: string
   type?: string
@@ -9,7 +10,10 @@ const HeroFaceImage = (props: HeroFaceImageProps) => {
   return (
     <div className="w-4/5 flex m-auto">
       <div className="w-1/2">
-        <img src={props.heroFace} className="w-full h-full object-contain" />
+        <img
+          src={props.heroFace}
+          className="w-full h-full object-contain animate__animated animate__shakeX"
+        />
       </div>
       <div className="w-1/2 relative flex justify-center items-center md:justify-start">
         <h1

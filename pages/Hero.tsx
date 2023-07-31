@@ -1,4 +1,7 @@
 import HeroFaceImage from '@/HeroFaceImage'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import ScrollAnimation from 'react-animate-on-scroll'
 
 const Hero = () => {
   return (
@@ -9,11 +12,19 @@ const Hero = () => {
           <h1 className="text-[60px] text-center font-extrabold">&</h1>
           <HeroFaceImage heroFace="/nao-1.png" name="Nao" type="Bride" />
         </div>
-        <h1 className="text-[60px] text-black text-center font-extrabold">
-          Wedding
-          <br className="md:hidden" />
-          Invitation
-        </h1>
+        <ScrollAnimation
+          animateIn="bounceInRight"
+          animateOut="bounceOutLeft"
+          animateOnce={true}
+        >
+          <h1 className="text-[60px] text-black text-center font-extrabold lg:text-[96px]">
+            Wedding
+            <br />
+            Invitation
+            <br />
+            <FontAwesomeIcon icon={faEnvelope} className="text-yellow-500" />
+          </h1>
+        </ScrollAnimation>
       </div>
     </div>
   )

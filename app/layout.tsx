@@ -45,6 +45,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="jp">
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
+        />
+      </head>
       <body className={inter.className}>{children}</body>
     </html>
   )
