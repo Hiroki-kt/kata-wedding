@@ -2,18 +2,18 @@
   "Profile": {
     "Hiroki": {
       "BirthDay": "1995/11/14",
-      "Country": "熊本県",
+      "Country": "熊本県菊池郡",
       "BradType": "O型",
-      "Myboom": "糖質制限",
-      "Comment": "よろしくお願いします",
+      "Myboom": "ダイエット",
+      "Comment": "この日のために、ダイエット頑張っています！！皆さんにお会いできるのを楽しみにしています。",
       "Img": "/hiroki-1.png"
     },
     "Nao": {
       "BirthDay": "1995/06/09",
-      "Country": "熊本県",
+      "Country": "熊本県宇城市",
       "BradType": "O型",
-      "Myboom": "糖質制限",
-      "Comment": "よろしくお願いします",
+      "Myboom": "スマホの麻雀ゲーム",
+      "Comment": "皆さんに楽しんでいただけるように、準備を頑張っています。皆さんとお会いできるのを楽しみにしています！",
       "Img": "/nao-1.png"
     }
   }

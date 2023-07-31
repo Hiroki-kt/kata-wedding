@@ -42,6 +42,7 @@ interface FormValues {
   phone: string
   email: string
   allergies: string
+  dislike: string
   message: string
 }
 
@@ -51,7 +52,7 @@ const InvitationForm: FC<Props> = ({ setStep }) => {
   //   if (!router.isReady) return
   //   const { tk } = router.query
   // }, [router.isReady])
-  const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(false)
 
   const {
     register,
@@ -73,6 +74,7 @@ const InvitationForm: FC<Props> = ({ setStep }) => {
       phone: '',
       email: '',
       allergies: '',
+      dislike: '',
       message: '',
     },
   })
@@ -327,6 +329,20 @@ const InvitationForm: FC<Props> = ({ setStep }) => {
         render={({ field }) => (
           <DefaultFormInput
             placeholder="アレルギー"
+            type="text"
+            value={field.value}
+            onChange={field.onChange}
+            startAdornment={<NoMealsIcon />}
+          />
+        )}
+      />
+
+      <Controller
+        name="dislike"
+        control={control}
+        render={({ field }) => (
+          <DefaultFormInput
+            placeholder="苦手な食材"
             type="text"
             value={field.value}
             onChange={field.onChange}

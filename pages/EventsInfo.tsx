@@ -24,7 +24,7 @@ const EventsInfo = () => {
         </div>
         <CommentWithIcon
           type="groom"
-          comment="挙式開始の15分前にお越しください。"
+          comment="挙式開始の15分前にお越しください。披露宴の終了予定は、19:30です。"
           img="/hiroki-1.png"
         />
         {/* Contents2 */}
@@ -47,12 +47,12 @@ const EventsInfo = () => {
               // referrerpolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
-          <CommentWithIcon
-            type="bride"
-            comment="式場はJR豊肥本線 武蔵塚駅から徒歩5分になります。本数は多くありませんので、ご注意ください"
-            img="/nao-1.png"
-          />
         </div>
+        <CommentWithIcon
+          type="bride"
+          comment="式場はJR豊肥本線 武蔵塚駅から徒歩5分になります。本数はあまり多くありませんので、ご注意ください。"
+          img="/nao-1.png"
+        />
       </div>
     </div>
   )

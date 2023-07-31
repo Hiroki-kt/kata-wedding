@@ -12,6 +12,7 @@ class FormProps {
   phone?: string
   email?: string
   allergies?: string
+  dislike?: string
   message?: string
 }
 
@@ -96,6 +97,10 @@ const format_properties = (props: FormProps) => {
     Allergies: {
       type: 'rich_text',
       rich_text: format_text(props.allergies),
+    },
+    Dislike: {
+      type: 'rich_text',
+      rich_text: format_text(props.dislike),
     },
     Message: {
       type: 'rich_text',
