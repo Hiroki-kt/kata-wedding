@@ -14,6 +14,14 @@ const EventsInfo = () => {
             {/* Contents1 */}
             <SubSectionTitle icon="faCalendarDays" name="Schedule" />
             <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
+              <div className="mt-5 text-center">
+                <p className="text-2xl text-black font-bold">
+                  2023/10/07 (Sat)
+                </p>
+                <div className="bg-purple-500 mt-1 h-[2px] w-full"></div>
+              </div>
+            </ScrollAnimation>
+            <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
               <div className="mt-5 flex flex-col gap-y-3">
                 {/*  */}
                 <div className="w-full text-center">
