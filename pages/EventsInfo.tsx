@@ -39,7 +39,7 @@ const EventsInfo = () => {
             </ScrollAnimation>
             <CommentWithIcon
               type="groom"
-              comment="挙式開始の15分前にお越しください。披露宴の終了予定は、19:30です。"
+              comment="挙式開始の15分前にはお越しください。披露宴の終了予定は、19:30です。"
               img="/hiroki-1.png"
             />
           </div>
