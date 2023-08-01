@@ -14,16 +14,26 @@ const EventsInfo = () => {
             {/* Contents1 */}
             <SubSectionTitle icon="faCalendarDays" name="Schedule" />
             <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
-              <div className="mt-3 flex flex-col">
+              <div className="mt-5 flex flex-col gap-y-3">
                 {/*  */}
                 <div className="w-full text-center">
+                  <h3 className="text-2xl">受付</h3>
+                  <p className="text-xl">
+                    開始時刻: <span className="text-purple-500">15:15</span>
+                  </p>
+                </div>
+                <div className="w-full text-center">
                   <h3 className="text-2xl">挙式</h3>
-                  <p>開始時刻 16:15</p>
+                  <p className="text-xl">
+                    開始時刻: <span className="text-purple-500">16:15</span>
+                  </p>
                 </div>
                 {/*  */}
                 <div className="w-full text-center">
                   <h3 className="text-2xl">披露宴</h3>
-                  <p>開始時間 17:00</p>
+                  <p className="text-xl">
+                    開始時間: <span className="text-purple-500">17:00</span>
+                  </p>
                 </div>
               </div>
             </ScrollAnimation>
