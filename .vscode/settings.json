@@ -1,6 +1,6 @@
 {
   // デフォルトフォーマットをPrettierにする
-  "editor.defaultFormatter": "esbenp.prettier-vscode" ,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   // TypeScriptのフォーマット設定
   "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   // .tsxファイルのフォーマット設定
@@ -9,7 +9,7 @@
   "editor.formatOnSave": true,
   // ファイル保存時にeslintのコードアクションを実行
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": "explicit"
   },
   // node_modulesにインストールしたTypeScriptを利用する
   "typescript.tsdk": "./node_modules/typescript/lib",
